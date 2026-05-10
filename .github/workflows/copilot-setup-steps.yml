@@ -1,0 +1,25 @@
+name: "Copilot Setup Steps"
+
+# Run automatically when this file changes, and allow manual runs from the Actions tab.
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+    pull_request:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+    # This job MUST be called `copilot-setup-steps` for Copilot to pick it up.
+    copilot-setup-steps:
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: read
+
+        steps:
+            # This repository has no dependencies to install.
+            # Copilot will check out the code automatically after these steps complete.
+            - name: Confirm setup complete
+              run: echo "No dependencies to install for this profile repository."
